@@ -1,14 +1,16 @@
 const express = require('express')
 const cors = require('cors')
 // const morgan = require('morgan')
-
-const path = require('path')
-const app = express()
 const globalErrorHandler = require('./controllers/errorController')
 const userRouter = require('./routers/userRouter')
 const postRouter = require('./routers/postRouter')
 
+const path = require('path')
+const app = express()
+app.enable('trust proxy')
+
 app.use(cors())
+app.options('*', cors());
 
 app.use(express.json())
 app.set('view engine', 'pug')
