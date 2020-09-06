@@ -15,11 +15,7 @@ const signToken = id => {
   
   const createSendToken = (user, statusCode, req, res) => {
     const token = signToken(user.id);
-<<<<<<< HEAD
     // Remove password from output
-=======
-    // Remove pwd from output
->>>>>>> 25421610e2622a0447bb2a9970c970fcf36693eb
     user.hash = undefined;
   
     res.status(statusCode).json({
@@ -30,11 +26,7 @@ const signToken = id => {
   };
 
 exports.protect = catchAsync(async (req, res, next) => {
-<<<<<<< HEAD
     // 1) Getting token and check of it's there
-=======
-    // 1) Getting token and check of its there
->>>>>>> 25421610e2622a0447bb2a9970c970fcf36693eb
     let token;
     if (
       req.headers.authorization &&
@@ -84,11 +76,7 @@ exports.signup = catchAsync(async(req, res, next) => {
 
     for(let key in newUser) {
         if(newUser[key].length <= 0) {
-<<<<<<< HEAD
             return next(new AppError('Fields cannot be empty.', 400))
-=======
-            return next(new AppError('Fields can not be empty.', 400))
->>>>>>> 25421610e2622a0447bb2a9970c970fcf36693eb
         }
     }
 
